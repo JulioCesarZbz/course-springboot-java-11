@@ -11,6 +11,8 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //Mapeamentos JPA
 @Entity
 @Table(name = "tb_payment")
@@ -23,6 +25,7 @@ public class Payment implements Serializable {
 	private Instant moment;
 	
 	//associações
+	@JsonIgnore
 	@OneToOne
 	@MapsId //essa associação é feita na classe dependente
 	private Order order;
